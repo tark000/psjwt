@@ -11,9 +11,10 @@ angular.module('psjwtApp')
   .controller('RegisterCtrl', function ($scope,$http,alert) {
     
   	var url = 'http://localhost:3000/register';
-  	var user = {name: 'Alex'};
+  	var user = {email: "test", password: "test123"};
 
     $scope.submit = function() {
+      var user = {email: $scope.email, password: $scope.password};
     	$http.post(url,user)
     	.success(function(res){
         alert('success', 'good ', 'Good');
