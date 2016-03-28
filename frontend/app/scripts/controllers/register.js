@@ -10,13 +10,13 @@
 angular.module('psjwtApp')
   .controller('RegisterCtrl', function ($scope,$http,alert) {
     
-  	var url = '/';
-  	var user = {};
+  	var url = 'http://localhost:3000/register';
+  	var user = {name: 'Alex'};
 
     $scope.submit = function() {
     	$http.post(url,user)
     	.success(function(res){
-    		console.log("good");
+        alert('success', 'good ', 'Good');
     	})
     	.error(function(res){
     		alert('warning', 'Opps', 'Could not register');
