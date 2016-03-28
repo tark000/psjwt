@@ -10,7 +10,7 @@ angular.module('psjwtApp')
   .directive('validateEquals', function () {
     return {
       require: 'ngModel',
-      link: function(scope, element,atrs,ngModelCtrl) {
+      link: function(scope, element,attrs,ngModelCtrl) {
      	function valideEqual(value) {
      		var valid = (value === scope.$eval(attrs.validateEquals));
      		ngModelCtrl.$setValidity('equal', valid);
