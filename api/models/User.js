@@ -6,10 +6,16 @@ var UserSchema = new mongoose.Schema({
 	password: String
 });
 
+UserSchema.methods.toJSON = function() {
+	var user = this.toObject();
+	delete user.password;
+	console.log(user);
+	return user;
+};
+
 exports.model = mongoose.model('User', UserSchema);
 
 UserSchema.pre('save', function(next){
-	console.log(123);
 	var user = this;
 
 	if(!user.isModified('password')) return next();
