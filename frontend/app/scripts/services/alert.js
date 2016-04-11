@@ -4,7 +4,7 @@ angular.module('psjwtApp')
   .service('alert', function ($rootScope, $timeout) {
   	var timeout = 3000;
   	var alertTimeout;
-  	return function(type,message,title) {
+  	return function(type,title,message) {
   		$rootScope.alert = {
   			hasBeenShown: true,
   			show: true,

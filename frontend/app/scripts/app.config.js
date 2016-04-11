@@ -1,4 +1,4 @@
-angular.module('psjwtApp').config(function($urlRouterProvider, $stateProvider){
+angular.module('psjwtApp').config(function($urlRouterProvider, $stateProvider, $httpProvider){
 
 	$urlRouterProvider.otherwise('/');
 
@@ -12,4 +12,16 @@ angular.module('psjwtApp').config(function($urlRouterProvider, $stateProvider){
 		templateUrl: '/views/register.html',
 		controller: 'RegisterCtrl'
 	})
-});
+	.state('logout',{
+		url: '/logout',
+		controller: 'LogoutCtrl'
+	})
+	.state('jobs',{
+		url: '/jobs',
+		templateUrl: '/views/jobs.html',
+		controller: 'JobsCtrl'
+	});
+
+	$httpProvider.interceptors.push('authInterceptor');
+})
+.constant('API_URL', 'http://localhost:3000/');

@@ -9,4 +9,4 @@
  * Main module of the application.
  */
 angular
-  .module('psjwtApp', ['ui.router']);
+  .module('psjwtApp', ['ui.router', 'ngAnimate']);
